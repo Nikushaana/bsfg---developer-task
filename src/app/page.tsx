@@ -1,103 +1,85 @@
-import Image from "next/image";
+import AboutCasinoComponent from "./components/aboutCasinoComponent";
+import BuyNowBanner from "./components/banners/buyNowBanner";
+import FirstSliderBanner from "./components/banners/firstSliderBanner";
+import GamesSlider from "./components/banners/gamesSlider";
+import SecondBanner from "./components/banners/secondBanner";
+import DropDown from "./components/DropDown/DropDown";
+import HorizontalScrollBar from "./components/FilterComponents/HorizontalScrollBar";
+import SearchBar from "./components/FilterComponents/searchBar";
+import BonusIcon from "./components/icons/BonusIcon";
+import CollectionsIcon from "./components/icons/CollectionsIcon";
+import FeaturedIcon from "./components/icons/FeaturedIcon";
+import FireIcon from "./components/icons/FireIcon";
+import LightIcon from "./components/icons/LightIcon";
+import LiveIcon from "./components/icons/LiveIcon";
+import ProvidersIcon from "./components/icons/ProvidersIcon";
+import ProvidersSliderIcon from "./components/icons/ProvidersSliderIcon";
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <div className="w-full flex flex-col gap-y-[15px]">
+      <FirstSliderBanner />
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+      <SecondBanner />
+      <div className="grid grid-cols-6 gap-[10px] relative">
+        <div className="col-span-4 max-[800px]:col-span-6">
+          <SearchBar placeholder="Search your game" />
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
+        <div className="max-[800px]:col-span-3 max-[800px]:order-3">
+          <DropDown
+            icon={<CollectionsIcon className="w-[26px] h-[26px]" />}
+            placeholder="Collections"
           />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
+        </div>
+        <div className="max-[800px]:col-span-3 max-[800px]:order-4">
+          <DropDown
+            icon={<ProvidersIcon className="w-[23px] h-[23px]" />}
+            placeholder="Providers"
           />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+        </div>
+        <div className="col-span-6 max-[800px]:order-2">
+          <HorizontalScrollBar />
+        </div>
+      </div>
+      <GamesSlider
+        title="Featured Games"
+        icon={<FeaturedIcon className="w-[22px] h-[22px]" />}
+        data={[1, 2, 3, 4, 5, 6, 7, 8, 9]}
+        cardType="1"
+      />
+      <GamesSlider
+        title="New Releases"
+        icon={<LightIcon className="w-[22px] h-[22px]" />}
+        data={[1, 2, 3, 4, 5, 6, 7, 8, 9]}
+        cardType="1"
+      />
+      <GamesSlider
+        title="Hot Games"
+        icon={<FireIcon className="w-[22px] h-[22px]" />}
+        data={[1, 2, 3, 4, 5, 6, 7, 8, 9]}
+        cardType="1"
+      />
+      <GamesSlider
+        title="Bonus Buy"
+        icon={<BonusIcon className="w-[22px] h-[22px]" />}
+        data={[1, 2, 3, 4, 5, 6, 7, 8, 9]}
+        cardType="1"
+      />
+      <GamesSlider
+        title="Live Games"
+        icon={<LiveIcon className="w-[22px] h-[22px]" />}
+        data={[1, 2, 3, 4, 5, 6, 7, 8, 9]}
+        cardType="1"
+      />
+      <GamesSlider
+        title="Providers"
+        icon={<ProvidersSliderIcon className="w-[22px] h-[22px]" />}
+        data={[1, 2, 3, 4, 5, 6, 7, 8, 9]}
+        cardType="2"
+      />
+
+      <BuyNowBanner />
+      <AboutCasinoComponent />
     </div>
   );
 }

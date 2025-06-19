@@ -1,26 +1,42 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --color-darkBlue: #162231;
+  --color-freshBlue: #0F70DC;
+  --color-darkestBlue: #10202D;
+  --color-midBlue: #152535;
+  --color-lightDarkBlue: #1C2E3D;
+  --color-custGray: #273344;
+  --color-contentBgColor: #253241;
+  --color-mainPageBgColor: #1c2e3d;
+  --color-custWhite: #C1C9E5;
+  --color-grayText: #66788C;
+  --color-lightgrayText: #8898B0;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* swiper */
+.FirstSliderBanner .swiper-pagination-bullet {
+  height: 5px;
+  width: 15px;
+  border-radius: 5px;
+  background-color: transparent;
+  border: 1px solid #0F70DC;
+  transition: all 0.3s ease;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.FirstSliderBanner .swiper-pagination-bullet-active {
+  background-color: #0F70DC !important;
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.FirstSliderBanner .swiper-wrapper {
+  height: 90% !important;
+}
+/* swiper */
+
+.notshowScrollVert::-webkit-scrollbar {
+  width: 0px;
+}
+
+.notshowScrollHor::-webkit-scrollbar {
+  height: 0px;
 }

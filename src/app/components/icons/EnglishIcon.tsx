@@ -1,0 +1,28 @@
+interface IconProps {
+  className?: string;
+}
+
+export default function EnglishIcon({ className }: IconProps) {
+  return (
+    <svg className={className} fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M10.9972 20.09C16.0179 20.09 20.0881 16.0199 20.0881 10.9991C20.0881 5.97834 16.0179 1.9082 10.9972 1.9082C5.97639 1.9082 1.90625 5.97834 1.90625 10.9991C1.90625 16.0199 5.97639 20.09 10.9972 20.09Z"
+        stroke="currentColor"
+        strokeWidth="1.1"
+        strokeLinecap="square"
+      />
+      <path
+        d="M10.9957 20.09C13.42 17.8862 14.6321 14.8559 14.6321 10.9991C14.6321 7.14236 13.42 4.11206 10.9957 1.9082C8.5715 4.11206 7.35938 7.14236 7.35938 10.9991C7.35938 14.8559 8.5715 17.8862 10.9957 20.09Z"
+        stroke="currentColor"
+        strokeWidth="1.1"
+        strokeLinecap="round"
+      />
+      <path
+        d="M2.35938 8.27148H19.6321M2.35938 13.726H19.6321"
+        stroke="currentColor"
+        strokeWidth="1.1"
+        strokeLinecap="round"
+      />
+    </svg>
+  );
+}
