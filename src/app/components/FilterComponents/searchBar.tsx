@@ -4,31 +4,17 @@ import React, { ChangeEvent, useEffect, useState } from "react";
 import SearchIcon from "../icons/SearchIcon";
 
 export default function SearchBar({
-  firstValue,
   placeholder,
   name,
-  setAllValues,
+  setSearch,
 }: SearchBarProps) {
   const [inputText, setInputText] = useState<string>("");
-
-  useEffect(() => {
-    if (setAllValues) {
-      setAllValues((prev) => ({
-        ...prev,
-        [name]: inputText,
-      }));
-    }
-  }, [inputText]);
-
-  useEffect(() => {
-    setInputText(firstValue ?? "");
-  }, [firstValue]);
 
   const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
     let newText = event.target.value;
 
     setInputText(newText);
-    // setAllValues((prev) => ({ ...prev, [name]: newText }));
+    setSearch(newText);
   };
 
   return (

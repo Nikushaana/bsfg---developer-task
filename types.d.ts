@@ -2,6 +2,10 @@ type MenuItem = {
   id: number;
   text: string;
 };
+type Provider = {
+  id: number;
+  text: string;
+};
 
 type FooterSection = {
   id: number;
@@ -12,7 +16,7 @@ type FooterSection = {
 interface GamesSliderProps {
   title: string;
   icon: ReactNode;
-  data: Array<string | number>; 
+  data: Game[]; 
   cardType: "1" | "2";
 }
 
@@ -21,12 +25,24 @@ interface DropDownProps {
   icon: ReactNode;
   placeholder: string;
   name?: string | any;
-  setAllValues?: (fn: (prev: Record<string, string>) => Record<string, string>) => void;
+  provider?: string,
+  setProvider?: any,
 }
 
 interface SearchBarProps {
   firstValue?: string;
   placeholder: string;
   name?: string | any;
-  setAllValues?: (fn: (prev: Record<string, string>) => Record<string, string>) => void;
+  setSearch?: any;
+}
+
+interface Game {
+  id: number;
+  name: string;
+  provider: string;
+  identifier: string;
+  type: number;
+  demo: number;
+  image: string;
+  categories: string[];
 }

@@ -8,19 +8,11 @@ export default function DropDown({
   data,
   icon,
   placeholder,
-  name,
-  setAllValues,
+  provider,
+  setProvider,
 }: DropDownProps) {
   const targetRef = useRef<HTMLDivElement>(null);
-  const inputRef = useRef<HTMLInputElement>(null);
   const [drop, setDrop] = useState(false);
-  const [value, setValue] = useState<string>("");
-
-  useEffect(() => {
-    if (setAllValues && value !== undefined) {
-      setAllValues((prev) => ({ ...prev, [name]: value }));
-    }
-  }, [value]);
 
   const handleClickOutside = (event: MouseEvent) => {
     if (
@@ -38,12 +30,6 @@ export default function DropDown({
     };
   }, []);
 
-  useEffect(() => {
-    if (drop) {
-      inputRef.current?.focus();
-    }
-  }, [drop]);
-
   return (
     <div ref={targetRef} className="relative w-full">
       <div
@@ -54,8 +40,8 @@ export default function DropDown({
       >
         <div className="flex items-center gap-[10px] w-[calc(100%-24px)] h-full text-white">
           {icon}
-          {value ? (
-            <p className="text-[14px]">{value}</p>
+          {provider ? (
+            <p className="text-[14px] truncate">{provider}</p>
           ) : (
             <p className="text-[14px]">{placeholder}</p>
           )}
@@ -75,21 +61,26 @@ export default function DropDown({
           drop ? "py-[5px]" : "py-0 h-0"
         }`}
       >
-        {[1, 2, 3, 4, 5].map((item) => (
+        {data.map((item: any) => (
           <div
-            key={item}
-            className={`flex items-center h-[40px] shrink-0 relative ${
-              false ? "bg-contentBgColor" : ""
+            key={item.id}
+            onClick={() =>
+              setProvider((prev: string) =>
+                prev == item.text ? "" : item.text
+              )
+            }
+            className={`flex items-center h-[40px] shrink-0 relative cursor-pointer ${
+              provider == item.text ? "bg-contentBgColor" : ""
             }`}
           >
             <div
               className={`h-full w-[5px] ${
-                false ? "bg-freshBlue" : "bg-transparent"
+                provider == item.text ? "bg-freshBlue" : "bg-transparent"
               }`}
             ></div>
             <div className="flex items-center gap-[10px] h-full text-custWhite pl-[10px]">
               <DiceIcon className="w-[23px] h-[23px]" />
-              <p className="text-[14px]">{placeholder}</p>
+              <p className="text-[14px]">{item.text}</p>
             </div>
           </div>
         ))}

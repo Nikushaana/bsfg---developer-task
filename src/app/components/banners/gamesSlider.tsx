@@ -67,7 +67,7 @@ export default function GamesSlider({
         modules={[Autoplay, EffectFade, Pagination]}
         slidesPerView={sldsPerView}
         spaceBetween={15}
-        loop={true}
+        loop={false}
         pagination={false}
         className={`w-[calc(100%+70px)] max-[800px]:w-full`}
         autoplay={{
@@ -80,8 +80,8 @@ export default function GamesSlider({
         }}
         speed={1200}
       >
-        {data?.map((item) => (
-          <SwiperSlide key={item}>
+        {data?.map((item, index) => (
+          <SwiperSlide key={index}>
             <div
               className={`relative w-full rounded-[5px] overflow-hidden ${
                 cardType === "1"
@@ -90,7 +90,7 @@ export default function GamesSlider({
               }`}
             >
               <Image
-                src="/images/20b262499b28dfc732bfa433af9e0cc491432525.png"
+                src={item.image}
                 alt={""}
                 sizes="500px"
                 fill
