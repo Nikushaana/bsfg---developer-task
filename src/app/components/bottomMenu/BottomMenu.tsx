@@ -7,7 +7,7 @@ import MiddleBtnIcon from "../icons/MiddleBtnIcon";
 
 export default function BottomMenu() {
   return (
-    <div className="hidden max-[800px]:flex justify-around items-center fixed bottom-0 z-[2] left-0 w-[100vw] h-[60px] border-[1px] border-custGray  rounded-t-[5px] bg-[#10212E] py-[5px] px-[40px]">
+    <div className="hidden max-[800px]:flex justify-around gap-[20px] items-center fixed bottom-0 z-[2] left-0 w-[100vw] h-[60px] border-[1px] border-custGray  rounded-t-[5px] bg-[#10212E] py-[5px] px-[40px]">
       <div className="flex flex-col items-center">
         <HomeBtnIcon className="w-[24px] h-[24px] text-custWhite" />
         <h1 className="text-white text-[11px]">Home</h1>

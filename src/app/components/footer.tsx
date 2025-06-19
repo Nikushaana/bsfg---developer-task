@@ -146,7 +146,7 @@ export default function Footer() {
     },
   ]);
   return (
-    <div className="bg-darkestBlue flex justify-center">
+    <div className="bg-darkestBlue flex justify-center max-[800px]:pb-[60px]">
       <div className="w-[1200px] max-[1400px]:w-[80vw] max-[800px]:w-[100vw] shrink-0 flex flex-col gap-y-[20px] py-[30px] max-[800px]:px-[20px]">
         <div className="flex max-[800px]:flex-col max-[800px]:gap-y-[20px] justify-between w-full">
           <div className="flex flex-col gap-y-[10px]">
